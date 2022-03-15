@@ -41,8 +41,8 @@ function remove(name) {
 function loadScreen() {
   const books = JSON.parse(localStorage.getItem('books'));
   for (let i = 0; i < books.length; i += 1) {
-    const name = books[i].name;
-    const author = books[i].author;
+    const { name } = books[i].name;
+    const { author } = books[i].author;
     const div = document.createElement('div');
     div.classList.add('book-list');
     const bookName = document.createElement('span');
