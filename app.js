@@ -3,18 +3,20 @@ const bookSection = document.getElementById('book-section');
 function add(e) {
   const name = document.getElementById('input-name').value;
   const author = document.getElementById('input-author').value;
+  const books = [];
 
   const book = {
+    id: (books.length),
     name,
     author,
   };
 
   if (localStorage.getItem('books') === null) {
-    const books = [];
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   } else {
     const books = JSON.parse(localStorage.getItem('books'));
+    book.id = books.length;
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   }
@@ -25,11 +27,11 @@ function add(e) {
 
 document.getElementById('form').addEventListener('submit', add);
 
-function remove(name) {
+function remove(id) {
   const books = JSON.parse(localStorage.getItem('books'));
 
   for (let i = 0; i < books.length; i += 1) {
-    if (name === books[i].name) {
+    if (id === books[i].id) {
       books.splice(i, 1);
     }
   }
@@ -41,8 +43,9 @@ function remove(name) {
 function loadScreen() {
   const books = JSON.parse(localStorage.getItem('books'));
   for (let i = 0; i < books.length; i += 1) {
-    const { name } = books[i].name;
-    const { author } = books[i].author;
+    const { id } = books[i];
+    const { name } = books[i];
+    const { author } = books[i];
     const div = document.createElement('div');
     div.classList.add('book-list');
     const bookName = document.createElement('span');
@@ -53,7 +56,7 @@ function loadScreen() {
     removeBtn.classList.add('remove-btn');
     removeBtn.textContent = 'Remove';
     removeBtn.onclick = function RemoveBtn() {
-      remove(name);
+      remove(id);
     };
     const divider = document.createElement('hr');
 
