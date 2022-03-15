@@ -1,22 +1,20 @@
 const bookSection = document.getElementById('book-section');
-const addBook = document.getElementById('add');
-document.getElementById('form').addEventListener('submit', add);
 
-function add(e){
-  name = document.getElementById('input-name').value;
-  author = document.getElementById('input-author').value;
+function add(e) {
+  const name = document.getElementById('input-name').value;
+  const author = document.getElementById('input-author').value;
 
   const book = {
     name,
     author,
   };
 
-  if (localStorage.getItem('books') === null){
+  if (localStorage.getItem('books') === null) {
     const books = [];
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   } else {
-    const books = JSON.parse(localStorage.getItem("books"));
+    const books = JSON.parse(localStorage.getItem('books'));
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   }
@@ -25,9 +23,24 @@ function add(e){
   window.location.reload();
 }
 
-function loadScreen(){
+document.getElementById('form').addEventListener('submit', add);
+
+function remove(name) {
   const books = JSON.parse(localStorage.getItem('books'));
-  for(let i = 0; i < books.length; i += 1){
+
+  for (let i = 0; i < books.length; i += 1) {
+    if (name === books[i].name) {
+      books.splice(i, 1);
+    }
+  }
+
+  localStorage.setItem('books', JSON.stringify(books));
+  window.location.reload();
+}
+
+function loadScreen() {
+  const books = JSON.parse(localStorage.getItem('books'));
+  for (let i = 0; i < books.length; i += 1) {
     const name = books[i].name;
     const author = books[i].author;
     const div = document.createElement('div');
@@ -39,7 +52,7 @@ function loadScreen(){
     const removeBtn = document.createElement('button');
     removeBtn.classList.add('remove-btn');
     removeBtn.textContent = 'Remove';
-    removeBtn.onclick = function(){
+    removeBtn.onclick = function RemoveBtn() {
       remove(name);
     };
     const divider = document.createElement('hr');
@@ -49,19 +62,6 @@ function loadScreen(){
     div.append(bookName, bookAuthor, removeBtn);
     bookSection.append(div, divider);
   }
-}
-
-function remove(name){
-  let books = JSON.parse(localStorage.getItem('books'));
-
-  for (let i = 0; i < books.length; i += 1){
-    if (name === books[i].name) {
-      books.splice(i, 1);
-    }
-  }
-
-  localStorage.setItem('books', JSON.stringify(books));
-  window.location.reload();
 }
 
 loadScreen();
