@@ -39,6 +39,9 @@ function loadScreen(){
     const removeBtn = document.createElement('button');
     removeBtn.classList.add('remove-btn');
     removeBtn.textContent = 'Remove';
+    removeBtn.onclick = function() {
+      remove(name);
+    };
     const divider = document.createElement('hr');
 
     bookName.textContent = name;
@@ -46,6 +49,20 @@ function loadScreen(){
     div.append(bookName, bookAuthor, removeBtn);
     bookSection.append(div, divider);
   }
+}
+
+function remove(name) {
+  let books = JSON.parse(localStorage.getItem("books"));
+  console.log(books);
+
+  for ( i = 0; i < books.length; i += 1) {
+    if (name === books[i].name) {
+      books.splice(i, 1);
+    }
+  }
+
+  localStorage.setItem('books', JSON.stringify(books));
+  window.location.reload();
 }
 
 loadScreen();
