@@ -8,6 +8,11 @@ class BookList {
   bookSection = document.getElementById("book-section");
   addBtn = document.getElementById("add");
 
+  createEmpty() {
+    const books = [];
+    localStorage.setItem("books", JSON.stringify(books));
+  }
+
   add(e) {
     const name = document.getElementById("input-name").value;
     const author = document.getElementById("input-author").value;
@@ -47,6 +52,9 @@ class BookList {
 
   loadScreen() {
     const books = JSON.parse(localStorage.getItem("books"));
+    if (!books) {
+      this.createEmpty();
+    }
     for (let i = 0; i < books.length; i += 1) {
       const { id } = books[i];
       const { name } = books[i];
@@ -65,7 +73,7 @@ class BookList {
       });
       const divider = document.createElement("hr");
 
-      bookName.textContent = name;
+      bookName.textContent = '"' + name + '"' + " by";
       bookAuthor.textContent = author;
       div.append(bookName, bookAuthor, removeBtn);
       this.bookSection.append(div, divider);
@@ -74,5 +82,5 @@ class BookList {
 }
 
 const book = new BookList();
-book.loadScreen();
 document.getElementById("form").addEventListener("submit", book.add);
+book.loadScreen();
