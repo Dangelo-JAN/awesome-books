@@ -35,7 +35,6 @@ class BookList {
 
   remove(id) {
     const books = JSON.parse(localStorage.getItem("books"));
-
     for (let i = 0; i < books.length; i += 1) {
       if (id === books[i].id) {
         books.splice(i, 1);
@@ -61,9 +60,9 @@ class BookList {
       const removeBtn = document.createElement("button");
       removeBtn.classList.add("remove-btn");
       removeBtn.textContent = "Remove";
-      removeBtn.onclick = function RemoveBtn() {
+      removeBtn.addEventListener("click", () => {
         this.remove(id);
-      };
+      });
       const divider = document.createElement("hr");
 
       bookName.textContent = name;
