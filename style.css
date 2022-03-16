@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* header */
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+header h1 {
+  text-align: center;
+}
+
+/* books list */
+
+#book-section {
+  display: flex;
+  flex-direction: column;
+  border: solid #000 2px;
+  padding: 10px;
+  margin: 20px;
+}
+
+.book-list {
+  display: flex;
+  width: 100%;
+}
+
+.book-name {
+  margin-right: 10px;
+}
+
+.book-author {
+  text-align: left;
+}
+
+.remove-btn {
+  align-self: flex-end;
+}
