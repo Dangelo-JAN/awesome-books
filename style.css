@@ -19,14 +19,21 @@ input {
   border: solid;
 }
 
+hr {
+  height: 2px;
+  width: 6em;
+  margin: 0 auto;
+}
+
 button {
   font-family: "Courier New", Courier, monospace;
   border: solid 2px;
   padding: 0.1em 0.5em;
+  box-shadow: 3px 3px;
 }
 
 /* books list */
-.add-book{
+.add-book {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,27 +48,47 @@ button {
   display: flex;
   flex-direction: column;
   border: solid #000 2px;
-  padding: 10px;
   margin: 20px;
+  height: 100%;
 }
 
 .book-list {
-  margin: 0.5em 0;
-  display:flex;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  width: 100%;
+  align-items: center;
+}
+
+.book-list:nth-child(2n + 1) {
+  background-color: gray;
+  height: 100%;
 }
 
 .book-name {
   display: inline-block;
-  text-align: center;
-  margin-right: 10px;
+  text-align: left;
+  margin-right: 15px;
+  width: 100%;
+  align-self: center;
 }
 
 .book-author {
   display: inline-block;
   text-align: center;
   text-align: left;
+  width: 100%;
+}
+
+.btn-container {
+  text-align: end;
+  align-self: flex-end;
+  width: 100%;
+  margin-right: 20px;
+  padding-bottom: 5px;
 }
 
 .remove-btn {
-  margin-left: 60%;
+  margin-right: 20px;
 }
+
+/* list options */

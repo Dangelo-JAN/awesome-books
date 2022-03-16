@@ -65,16 +65,19 @@ class BookList {
       bookName.classList.add("book-name");
       const bookAuthor = document.createElement("p");
       bookAuthor.classList.add("book-author");
+      const divBtn = document.createElement("div");
+      divBtn.classList.add("btn-container");
       const removeBtn = document.createElement("button");
       removeBtn.classList.add("remove-btn");
       removeBtn.textContent = "Remove";
       removeBtn.addEventListener("click", () => {
         this.remove(id);
       });
+      divBtn.append(removeBtn);
 
       bookName.textContent = '"' + name + '"' + " by";
       bookAuthor.textContent = author;
-      div.append(bookName, bookAuthor, removeBtn);
+      div.append(bookName, bookAuthor, divBtn);
       this.bookSection.append(div);
     }
   }
