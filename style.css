@@ -14,7 +14,28 @@ header h1 {
   text-align: center;
 }
 
+input {
+  margin-top: 1em;
+  border: solid;
+}
+
+button {
+  font-family: "Courier New", Courier, monospace;
+  border: solid 2px;
+  padding: 0.1em 0.5em;
+}
+
 /* books list */
+.add-book{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.b-submit {
+  margin-top: 1em;
+  margin-left: 75%;
+}
 
 #book-section {
   display: flex;
@@ -25,18 +46,22 @@ header h1 {
 }
 
 .book-list {
-  display: flex;
-  width: 100%;
+  margin: 0.5em 0;
+  display:flex;
 }
 
 .book-name {
+  display: inline-block;
+  text-align: center;
   margin-right: 10px;
 }
 
 .book-author {
+  display: inline-block;
+  text-align: center;
   text-align: left;
 }
 
 .remove-btn {
-  align-self: flex-end;
+  margin-left: 60%;
 }

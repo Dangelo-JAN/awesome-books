@@ -61,7 +61,7 @@ class BookList {
       const { author } = books[i];
       const div = document.createElement("div");
       div.classList.add("book-list");
-      const bookName = document.createElement("span");
+      const bookName = document.createElement("p");
       bookName.classList.add("book-name");
       const bookAuthor = document.createElement("p");
       bookAuthor.classList.add("book-author");
@@ -71,12 +71,11 @@ class BookList {
       removeBtn.addEventListener("click", () => {
         this.remove(id);
       });
-      const divider = document.createElement("hr");
 
       bookName.textContent = '"' + name + '"' + " by";
       bookAuthor.textContent = author;
       div.append(bookName, bookAuthor, removeBtn);
-      this.bookSection.append(div, divider);
+      this.bookSection.append(div);
     }
   }
 }
