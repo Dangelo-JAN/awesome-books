@@ -10,8 +10,9 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 
-header h1 {
+h1 {
   text-align: center;
+  font-size: 2em;
 }
 
 input {
@@ -32,6 +33,54 @@ button {
   box-shadow: 3px 3px;
 }
 
+/* nav section */
+.nav-container {
+  display: flex;
+  margin: 1em;
+  border: solid 3px;
+  border-radius: 5px;
+}
+
+.logo {
+  width: 200%;
+  margin: 1em 2em;
+}
+
+.nav-ul {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  flex: 1 1 0;
+  width: 100%;
+}
+
+.li-nav {
+  width: 7em;
+}
+
+.a-li {
+  text-decoration: none;
+  color: #000;
+}
+
+.a-li:hover {
+  color: blue;
+}
+
+.a-li:active {
+  color: blue;
+}
+
+.li-add {
+  border-left: solid 2px;
+  border-right: solid 2px;
+}
+
+.d-toggle {
+  display: none;
+}
+
 /* books list */
 .add-book {
   display: flex;
@@ -47,9 +96,10 @@ button {
 #book-section {
   display: flex;
   flex-direction: column;
-  border: solid #000 2px;
   margin: 20px;
   height: 100%;
+  border: solid 3px;
+  border-radius: 5px;
 }
 
 .book-list {
@@ -91,4 +141,31 @@ button {
   margin-right: 20px;
 }
 
-/* list options */
+.span-copyright {
+  margin: 1em 3em;
+}
+
+footer {
+  margin: 0 1.5em;
+  padding: 0.5em 0;
+  border: solid 3px black;
+  border-radius: 3px;
+}
+
+/* section information */
+.p-contact {
+  width: 80%;
+  margin: 3em auto;
+  text-align: center;
+}
+
+.ul-contact {
+  width: 80%;
+  margin: 3em;
+}
+
+.li-contact {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}

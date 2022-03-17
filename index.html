@@ -11,14 +11,23 @@
 
 <body>
   <main>
+    <nav class="nav-container">
+      <span class="logo">Awesome Books</span>
+      <div class="nav-ul">
+        <ul class="nav-ul">
+          <li class="li-nav"><a class="a-li" href="#book-section">List</a></li>
+          <li class="li-nav li-add"><a class="a-li" href="#add-book">Add new</a></li>
+          <li class="li-nav"><a class="a-li" href="#contact-section">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
     <header>
       <h1>All Awesome Books</h1>
     </header>
     <section id="book-section">
     </section>
-    <hr>
     <section class="add-book" id="add-book">
-      <h2>Add a new book</h2>
+      <h1>Add a new book</h1>
       <form id="form">
         <input placeholder="title" id="input-name" type="text" required>
         <br />
@@ -27,6 +36,23 @@
         <button class="b-submit" type="submit" id="add">Add</button>
       </form>
     </section>
+    <section id="contact-section">
+      <h1>Contact information</h1>
+      <p class="p-contact">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Porro, quia? Unde, animi excepturi id, aperiam sunt libero 
+        facilis ex saepe omnis similique non voluptatibus 
+        perferendis at atque itaque recusandae laudantium.
+      </p>
+      <ul  class="ul-contac">
+        <li class="li-contac">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        <li class="li-contac">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        <li class="li-contac">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+      </ul>
+    </section>
+    <footer>
+      <span class="span-copyright">Copyright -</span>
+    </footer>
     <script src="app.js"></script>
   </main>
 </body>
